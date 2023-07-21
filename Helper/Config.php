@@ -5,7 +5,7 @@ namespace DanielNavarro\ChatGpt\Helper;
 class Config extends \Magento\Framework\App\Helper\AbstractHelper
 {
     const PATH_CHATGPT_ENABLE = 'danielnavarro_chatgpt/general/enable';
-    const PATH_CHATGPT_API_Key = 'farmaciasvivo_stock/general/api_key';
+    const PATH_CHATGPT_API_Key = 'danielnavarro_chatgpt/general/api_key';
 
     /**
      * Check if ChatGPT integration is enabled
