@@ -8,7 +8,7 @@ class Moderation extends Base
     const CATEGORY_SEXUAL = 'sexual';
     const CATEGORY_HATE = 'hate';
     const CATEGORY_HARASSMENT = 'harassment';
-    const CATEGORY_SELF_HARM = 'self-harm';
+    const CATEGORY_SELF_HARM = 'selfharm';
     const CATEGORY_THREATENING = 'threatening';
     const CATEGORY_VIOLENCE = 'violence';
 
@@ -78,7 +78,7 @@ class Moderation extends Base
             return [];
         }
 
-        // Rerturn translated categories
+        // Return translated categories
         $processedResult = $this->translateScores(
             $result['results'][0]['flagged'],
             $result['results'][0]['categories'],
@@ -119,12 +119,12 @@ class Moderation extends Base
             foreach ($internalCategories as $internalCategory) {
 
                 // Initicalize if neede
-                if (!isset($result[$internalCategory])) {
-                    $result[$internalCategory] = 0;
+                if (!isset($result['categories'][$internalCategory])) {
+                    $result['categories'][$internalCategory] = 0;
                 }
 
                 // Add score round to four decimals
-                $result[$internalCategory] += round($score, 4);
+                $result['categories'][$internalCategory] += round($score, 4);
             }
         }
 
