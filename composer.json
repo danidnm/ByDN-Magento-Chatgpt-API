@@ -1,6 +1,6 @@
 {
     "name": "daniel-navarro/chat-gpt",
-    "description": "ChatGPT API Integration",
+    "description": "OpenAI API Integration",
     "require": {
         "php": ">=8.1"
     },

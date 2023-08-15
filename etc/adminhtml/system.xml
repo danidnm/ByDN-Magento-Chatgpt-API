@@ -5,22 +5,22 @@
             <label>AI Extensions (by DN)</label>
         </tab>
         <section id="danielnavarro_chatgpt" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
-            <label>ChatGPT API configuration</label>
+            <label>OpenAI API configuration</label>
             <tab>danielnavarro</tab>
             <resource>DanielNavarro_ChatGpt::config</resource>
             <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>General Configuration</label>
                 <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>ChatGPT API Enabled</label>
+                    <label>OpenAI API Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <comment>If disabled, no API calls should be made to ChatGPT</comment>
+                    <comment>If disabled, no API calls should be made to OpenAI API</comment>
                 </field>
                 <field id="api_key" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>API Key</label>
                     <depends>
                         <field id="enable">1</field>
                     </depends>
-                    <comment>Introduce the API key for ChatGPT</comment>
+                    <comment>Introduce the API key for OpenAI</comment>
                 </field>
             </group>
         </section>

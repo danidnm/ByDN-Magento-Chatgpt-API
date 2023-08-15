@@ -12,7 +12,7 @@ class Moderation extends Base
     const CATEGORY_THREATENING = 'threatening';
     const CATEGORY_VIOLENCE = 'violence';
 
-    // Open AI clasification
+    // OpenAI clasification
     const OPENAI_CATEGORY_SEXUAL = 'sexual';
     const OPENAI_CATEGORY_HATE = 'hate';
     const OPENAI_CATEGORY_HARASSMENT = 'harassment';
