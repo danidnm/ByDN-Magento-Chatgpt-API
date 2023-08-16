@@ -5,25 +5,25 @@ namespace DanielNavarro\ChatGpt\Model\ChatGpt;
 class Moderation extends Base
 {
     // Internal categories
-    const CATEGORY_SEXUAL = 'sexual';
-    const CATEGORY_HATE = 'hate';
-    const CATEGORY_HARASSMENT = 'harassment';
-    const CATEGORY_SELF_HARM = 'selfharm';
-    const CATEGORY_THREATENING = 'threatening';
-    const CATEGORY_VIOLENCE = 'violence';
+    protected const CATEGORY_SEXUAL = 'sexual';
+    protected const CATEGORY_HATE = 'hate';
+    protected const CATEGORY_HARASSMENT = 'harassment';
+    protected const CATEGORY_SELF_HARM = 'selfharm';
+    protected const CATEGORY_THREATENING = 'threatening';
+    protected const CATEGORY_VIOLENCE = 'violence';
 
-    // OpenAI clasification
-    const OPENAI_CATEGORY_SEXUAL = 'sexual';
-    const OPENAI_CATEGORY_HATE = 'hate';
-    const OPENAI_CATEGORY_HARASSMENT = 'harassment';
-    const OPENAI_CATEGORY_SELF_HARM = 'self-harm';
-    const OPENAI_CATEGORY_SEXUAL_MINORS = 'sexual/minors';
-    const OPENAI_CATEGORY_HATE_THREATENING = 'hate/threatening';
-    const OPENAI_CATEGORY_VIOLENCE_GRAPHIC = 'violence/graphic';
-    const OPENAI_CATEGORY_SELF_HARM_INTENT = 'self-harm/intent';
-    const OPENAI_CATEGORY_SELF_HARM_INSTRUCTIONS = 'self-harm/instructions';
-    const OPENAI_CATEGORY_HARASSMENT_THREATENING = 'harassment/threatening';
-    const OPENAI_CATEGORY_VIOLENCE = 'violence';
+    // OpenAI classification
+    protected const OPENAI_CATEGORY_SEXUAL = 'sexual';
+    protected const OPENAI_CATEGORY_HATE = 'hate';
+    protected const OPENAI_CATEGORY_HARASSMENT = 'harassment';
+    protected const OPENAI_CATEGORY_SELF_HARM = 'self-harm';
+    protected const OPENAI_CATEGORY_SEXUAL_MINORS = 'sexual/minors';
+    protected const OPENAI_CATEGORY_HATE_THREATENING = 'hate/threatening';
+    protected const OPENAI_CATEGORY_VIOLENCE_GRAPHIC = 'violence/graphic';
+    protected const OPENAI_CATEGORY_SELF_HARM_INTENT = 'self-harm/intent';
+    protected const OPENAI_CATEGORY_SELF_HARM_INSTRUCTIONS = 'self-harm/instructions';
+    protected const OPENAI_CATEGORY_HARASSMENT_THREATENING = 'harassment/threatening';
+    protected const OPENAI_CATEGORY_VIOLENCE = 'violence';
 
     /**
      * Translation into our categories
@@ -56,11 +56,13 @@ class Moderation extends Base
     protected $endpointUrl = 'https://api.openai.com/v1/moderations';
 
     /**
-     * @param $text
+     * Make a request to OpenAI moderation service with the specified text
+     *
+     * @param string $text
      * @return array|mixed
      */
-    public function moderateText($text) {
-
+    public function moderateText(string $text)
+    {
         // Prepare data array...
         $data = [
             'input' => $text,
@@ -70,8 +72,7 @@ class Moderation extends Base
         $result = $this->_makeRequest($data);
 
         // Should be this data in the response
-        if (
-            !isset($result['results'][0]['flagged']) ||
+        if (!isset($result['results'][0]['flagged']) ||
             !isset($result['results'][0]['categories']) ||
             !isset($result['results'][0]['category_scores'])
         ) {
@@ -88,8 +89,14 @@ class Moderation extends Base
         return $processedResult;
     }
 
-    private function getInternalCategories($openAiCategory) {
-
+    /**
+     * Returns internal category for a particular OpenAI category
+     *
+     * @param string $openAiCategory
+     * @return array|string[]
+     */
+    private function getInternalCategories(string $openAiCategory)
+    {
         // Check if it is set
         if (isset($this->openAiToInternalCategories[$openAiCategory])) {
             return $this->openAiToInternalCategories[$openAiCategory];
@@ -98,8 +105,16 @@ class Moderation extends Base
         return ['unknown'];
     }
 
-    private function translateScores($flagged, $categories, $scores) {
-
+    /**
+     * Translates OpenAI scores into internal extension scores
+     *
+     * @param string $flagged
+     * @param array $categories
+     * @param array $scores
+     * @return array
+     */
+    private function translateScores($flagged, $categories, $scores)
+    {
         // Data to return
         $result = [];
 
