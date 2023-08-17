@@ -1,5 +1,5 @@
 {
-    "name": "daniel-navarro/chat-gpt",
+    "name": "bydn/openai",
     "description": "OpenAI API Integration",
     "require": {
         "php": ">=8.1"
@@ -14,7 +14,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "DanielNavarro\\ChatGpt\\": ""
+            "Bydn\\OpenAi\\": ""
         }
     }
 }

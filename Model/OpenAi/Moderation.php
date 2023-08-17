@@ -1,6 +1,6 @@
 <?php
 
-namespace DanielNavarro\ChatGpt\Model\ChatGpt;
+namespace Bydn\OpenAi\Model\OpenAi;
 
 class Moderation extends Base
 {

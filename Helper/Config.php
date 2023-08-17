@@ -1,11 +1,11 @@
 <?php
 
-namespace Bydn\ChatGpt\Helper;
+namespace Bydn\OpenAi\Helper;
 
 class Config extends \Magento\Framework\App\Helper\AbstractHelper
 {
-    private const PATH_CHATGPT_ENABLE = 'bydn_chatgpt/general/enable';
-    private const PATH_CHATGPT_API_KEY = 'bydn_chatgpt/general/api_key';
+    private const PATH_OPENAI_ENABLE = 'bydn_openai/general/enable';
+    private const PATH_OPENAI_API_KEY = 'bydn_openai/general/api_key';
 
     /**
      * Check if OpenAI integration is enabled
@@ -16,7 +16,7 @@ class Config extends \Magento\Framework\App\Helper\AbstractHelper
     public function isEnabled($storeId = null)
     {
         return $this->scopeConfig->getValue(
-            self::PATH_CHATGPT_ENABLE,
+            self::PATH_OPENAI_ENABLE,
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
             $storeId
         );
@@ -31,7 +31,7 @@ class Config extends \Magento\Framework\App\Helper\AbstractHelper
     public function getApiKey($storeId = null)
     {
         return $this->scopeConfig->getValue(
-            self::PATH_CHATGPT_API_KEY,
+            self::PATH_OPENAI_API_KEY,
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
             $storeId
         );

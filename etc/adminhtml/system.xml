@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="danielnavarro_ai" translate="label" sortOrder="2500">
+        <tab id="bydn_ai" translate="label" sortOrder="2500">
             <label>AI Extensions (by DN)</label>
         </tab>
-        <section id="danielnavarro_chatgpt" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+        <section id="bydn_openai" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
             <label>OpenAI API configuration</label>
-            <tab>danielnavarro_ai</tab>
-            <resource>DanielNavarro_ChatGpt::config</resource>
+            <tab>bydn_ai</tab>
+            <resource>Bydn_OpenAi::config</resource>
             <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>General Configuration</label>
                 <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">

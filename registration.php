@@ -2,6 +2,6 @@
 
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'DanielNavarro_ChatGpt',
+    'Bydn_OpenAi',
     __DIR__
 );

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bydn\ChatGpt\Model\ChatGpt;
+namespace Bydn\OpenAi\Model\OpenAi;
 
 class Base
 {
@@ -17,17 +17,17 @@ class Base
     protected $endpointUrl = '';
 
     /**
-     * @var \Bydn\ChatGpt\Helper\Config
+     * @var \Bydn\OpenAi\Helper\Config
      */
-    private $chatGptConfig;
+    private $openAiConfig;
 
     /**
-     * @param \Bydn\ChatGpt\Helper\Config $chatGptConfig
+     * @param \Bydn\OpenAi\Helper\Config $openAiConfig
      */
     public function __construct(
-        \Bydn\ChatGpt\Helper\Config $chatGptConfig
+        \Bydn\OpenAi\Helper\Config $openAiConfig
     ) {
-        $this->chatGptConfig = $chatGptConfig;
+        $this->openAiConfig = $openAiConfig;
     }
 
     /**
@@ -60,14 +60,14 @@ class Base
     protected function _makeRequest($data)
     {
         // Do not post anything if not enabled
-        if (!$this->chatGptConfig->isEnabled()) {
+        if (!$this->openAiConfig->isEnabled()) {
             throw new \Magento\Framework\Exception\LocalizedException(
-                new \Magento\Framework\Phrase('ChatGpt is not enabled. Request aborted.')
+                new \Magento\Framework\Phrase('OpenAi is not enabled. Request aborted.')
             );
         }
 
         // Get the API key to be used
-        $apiKey = $this->chatGptConfig->getApiKey();
+        $apiKey = $this->openAiConfig->getApiKey();
 
         // Get the endpoint to be used
         $endpoint = $this->getEndpointUrl();
