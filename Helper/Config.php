@@ -1,11 +1,11 @@
 <?php
 
-namespace DanielNavarro\ChatGpt\Helper;
+namespace Bydn\ChatGpt\Helper;
 
 class Config extends \Magento\Framework\App\Helper\AbstractHelper
 {
-    private const PATH_CHATGPT_ENABLE = 'danielnavarro_chatgpt/general/enable';
-    private const PATH_CHATGPT_API_KEY = 'danielnavarro_chatgpt/general/api_key';
+    private const PATH_CHATGPT_ENABLE = 'bydn_chatgpt/general/enable';
+    private const PATH_CHATGPT_API_KEY = 'bydn_chatgpt/general/api_key';
 
     /**
      * Check if OpenAI integration is enabled

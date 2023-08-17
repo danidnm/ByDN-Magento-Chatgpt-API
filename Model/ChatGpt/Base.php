@@ -1,6 +1,6 @@
 <?php
 
-namespace DanielNavarro\ChatGpt\Model\ChatGpt;
+namespace Bydn\ChatGpt\Model\ChatGpt;
 
 class Base
 {
@@ -17,15 +17,15 @@ class Base
     protected $endpointUrl = '';
 
     /**
-     * @var \DanielNavarro\ChatGpt\Helper\Config
+     * @var \Bydn\ChatGpt\Helper\Config
      */
     private $chatGptConfig;
 
     /**
-     * @param \DanielNavarro\ChatGpt\Helper\Config $chatGptConfig
+     * @param \Bydn\ChatGpt\Helper\Config $chatGptConfig
      */
     public function __construct(
-        \DanielNavarro\ChatGpt\Helper\Config $chatGptConfig
+        \Bydn\ChatGpt\Helper\Config $chatGptConfig
     ) {
         $this->chatGptConfig = $chatGptConfig;
     }
